@@ -11,7 +11,7 @@ type ReportTarget = { type: 'user' | 'post' | 'comment'; id: string; label: stri
 
 export function ReportModal({ post, target, onClose }: { post: Post | null; target?: ReportTarget | null; onClose: () => void }) {
   const { user } = useAuth()
-  const [reason, setReason] = useState(reasons[0])
+const [reason, setReason] = useState<string>(reasons[0] ?? 'Spam or misleading')
   const [details, setDetails] = useState('')
   const [sending, setSending] = useState(false)
   if (!post && !target) return null
